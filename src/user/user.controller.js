@@ -7,6 +7,7 @@ export const updateUser = async (req, res) => {
         const { uid } = req.params;
         const data = req.body;
 
+        
         const user = await User.findByIdAndUpdate(uid, data, { new: true });
 
         res.status(200).json({
@@ -29,7 +30,7 @@ export const defaultUser = async () => {
         "name": "Derian",
         "surname": "Hernández",
         "username": "elPapuPro",
-        "Role" : "ADMIN",
+        "role" : "ADMIN",
         "email": "dshgonzalez11@gmail.com",
         "password": "Samedirection14*",
         "phone": "40191129",

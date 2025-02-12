@@ -3,6 +3,7 @@ import { validarCampos } from "./fields-validator.js";
 import { handleErrors } from "./handle-errors.js";
 import { validateJWT } from "./validate-jwt.js";
 import { emailExists, usernameExists,userExists } from "../helpers/db-validators.js";
+import { hasRoles } from "./validate-roles.js";
 export const registerValidator = [
     body("name").notEmpty().withMessage("El nombre es requerido"),
     body("username").notEmpty().withMessage("El username es requerido"),
@@ -21,8 +22,17 @@ export const registerValidator = [
     handleErrors
 ]
 
+export const loginValidator = [
+    body("email").optional().isEmail().withMessage("No es un email válido"),
+    body("username").optional().isString().withMessage("Username es en formáto erróneo"),
+    body("password").isLength({min: 4}).withMessage("El password debe contener al menos 8 caracteres"),
+    validarCampos,
+    handleErrors
+]
+
 export const updateUserValidator = [
     validateJWT,
+    hasRoles("ADMIN"),
     param("id", "No es un ID válido").isMongoId(),
     param("id").custom(userExists)
 ]
