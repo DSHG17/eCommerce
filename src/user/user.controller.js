@@ -1,5 +1,5 @@
 import User from "./user.model.js"
-import { hash } from "argon2";
+import { hash, verify } from "argon2";
 
 
 export const updateUser = async (req, res) => {
@@ -49,7 +49,37 @@ export const defaultUser = async () => {
          User.create(adminUser);
         
     }
+}
 
+export const updatePassword = async(req,res) =>{
+    try {
+        const { id } = req.usuario;
+        const { newPassword } = req.body;
 
+        const user = await User.findById(id)
 
+        const matchOldAndNewPassword = await verify(user.password, newPassword);
+
+        if (matchOldAndNewPassword) {
+            return res.status(400).json({
+                success: false,
+                message: "The new password cant be the same as the old one"
+            });
+        }
+
+        const encryptedPassword = await hash(newPassword);
+
+        await User.findByIdAndUpdate(id, { password: encryptedPassword }, { new: true });
+
+        return res.status(200).json({
+            success: true,
+            message: "Password udpated sucessfuly",
+        });
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: "Error while updating the password",
+            error: err.message
+        });
+    }
 }

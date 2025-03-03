@@ -39,3 +39,16 @@ export const updateUserValidator = [
     param("id", "No es un ID válido").isMongoId(),
     param("id").custom(userExists)
 ]
+
+export const updatePasswordValidator = [
+    validateJWT,
+    body("newPassword").isStrongPassword({
+        minLength: 8,
+        minLowercase:1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1
+    }),
+    validarCampos,
+    handleErrors
+]

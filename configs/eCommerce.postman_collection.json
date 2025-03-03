@@ -46,6 +46,11 @@
 									"key": "password",
 									"value": "Samedirection14*",
 									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/Informatica/Downloads/yasuo.jpg"
 								}
 							]
 						},
@@ -76,7 +81,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"dshgonzalez11@gmail.com\",\r\n    \"password\": \"Samedirection14*\"\r\n}",
+							"raw": "{\r\n    \"email\": \"jbalenciaga3@gmail.es\",\r\n    \"password\": \"Samedirection14*\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -102,7 +107,12 @@
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
 				{
 					"name": "Update User",
 					"request": {
@@ -111,7 +121,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMjkxM2Y5NTU2MTc3YTFlMzg2YmMiLCJpYXQiOjE3Mzk0MDIzMDEsImV4cCI6MTczOTQwNTkwMX0.lwVb7R03TLqz8gm9kE_7c2YEXejG_esiuzjFS1ZjCa4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2MTA1Mjc3MDI0MWMxMDY4OTRmMjAiLCJpYXQiOjE3NDEwMzg1MzAsImV4cCI6MTc0MTA0MjEzMH0.1rWAgvqTAL453W3L28LNpj_S5K_KMTVBWJVAU2ZqeXY",
 									"type": "string"
 								}
 							]
@@ -128,7 +138,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/eCommerce/v1/user/updateUser/67ad2913f9556177a1e386bc",
+							"raw": "http://127.0.0.1:3000/eCommerce/v1/user/updateUser",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -141,8 +151,51 @@
 								"eCommerce",
 								"v1",
 								"user",
-								"updateUser",
-								"67ad2913f9556177a1e386bc"
+								"updateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2MzI5MzgxODFhNWExZTI5YzFhN2YiLCJpYXQiOjE3NDEwNDI3NTIsImV4cCI6MTc0MTA0NjM1Mn0.GJEOZxllTe4CH_6pfr4fpjhRAYjgd2IC6YJW-13i8P8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\" : \"Samedirection14*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/eCommerce/v1/user/updatePassword",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"eCommerce",
+								"v1",
+								"user",
+								"updatePassword"
 							]
 						}
 					},
