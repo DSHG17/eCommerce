@@ -4,21 +4,21 @@ import { hash } from "argon2";
 
 export const updateUser = async (req, res) => {
     try {
-        const { uid } = req.params;
+        const { id } = req.usuario;
         const data = req.body;
 
-        
-        const user = await User.findByIdAndUpdate(uid, data, { new: true });
+        console.log(id)
+        const user = await User.findByIdAndUpdate(id, data, { new: true });
 
         res.status(200).json({
             success: true,
-            msg: 'Usuario Actualizado',
+            msg: 'User updated',
             user,
         });
     } catch (err) {
         res.status(500).json({
             success: false,
-            msg: 'Error al actualizar usuario',
+            msg: 'Error while updating the user',
             error: err.message
         });
     }

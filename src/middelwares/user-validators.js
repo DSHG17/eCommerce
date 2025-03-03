@@ -4,6 +4,8 @@ import { handleErrors } from "./handle-errors.js";
 import { validateJWT } from "./validate-jwt.js";
 import { emailExists, usernameExists,userExists } from "../helpers/db-validators.js";
 import { hasRoles } from "./validate-roles.js";
+import { deleteFileOnError } from "./delete-file-on-error.js";
+
 export const registerValidator = [
     body("name").notEmpty().withMessage("El nombre es requerido"),
     body("username").notEmpty().withMessage("El username es requerido"),
@@ -18,6 +20,7 @@ export const registerValidator = [
         minNumbers: 1,
         minSymbols: 1
     }),
+    deleteFileOnError,
     validarCampos,
     handleErrors
 ]
