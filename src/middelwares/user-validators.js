@@ -52,3 +52,10 @@ export const updatePasswordValidator = [
     validarCampos,
     handleErrors
 ]
+
+export const updateProfilePictureValidator = [
+    validateJWT,
+    validarCampos,
+    deleteFileOnError,
+    handleErrors
+];

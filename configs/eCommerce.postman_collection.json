@@ -200,6 +200,57 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "updateProfilePicture",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2MzI5MzgxODFhNWExZTI5YzFhN2YiLCJpYXQiOjE3NDEwNDI3NTIsImV4cCI6MTc0MTA0NjM1Mn0.GJEOZxllTe4CH_6pfr4fpjhRAYjgd2IC6YJW-13i8P8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/Informatica/Downloads/yasuo2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/eCommerce/v1/user/updateProfilePicture",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"eCommerce",
+								"v1",
+								"user",
+								"updateProfilePicture"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

@@ -1,8 +1,8 @@
 import { Router } from "express";
 
-import { updatePassword, updateUser } from "./user.controller.js";
-import { updatePasswordValidator, updateUserValidator } from "../middelwares/user-validators.js";
-
+import { updatePassword, updateUser, updateProfilePicture } from "./user.controller.js";
+import { updatePasswordValidator, updateUserValidator, updateProfilePictureValidator } from "../middelwares/user-validators.js";
+import { uploadProfilePicture } from "../middelwares/multer-upload.js";
 const router = Router();
 
 
@@ -69,5 +69,42 @@ router.put("/updateUser",updateUserValidator,updateUser)
 
 
 router.patch("/updatePassword", updatePasswordValidator,updatePassword)
+
+
+/**
+ * @swagger
+ * /updateProfilePicture:
+ *   patch:
+ *     summary: Update a user's profile picture
+ *     parameters:
+ *       - in: path
+ *         name: uid
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               profilePicture:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       200:
+ *         description: Profile picture updated
+ *       400:
+ *         description: No profile picture has been given
+ *       500:
+ *         description: Error while updating the profile picture 
+ */
+router.patch(
+    "/updateProfilePicture",
+    uploadProfilePicture.single("profilePicture"),
+    updateProfilePictureValidator,
+    updateProfilePicture
+  );
 
 export default router
