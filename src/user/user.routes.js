@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-import { updatePassword, updateUser, updateProfilePicture, deleteUser } from "./user.controller.js";
-import { updatePasswordValidator, updateUserValidator, updateProfilePictureValidator, deleteUserValidator } from "../middelwares/user-validators.js";
+import { updatePassword, updateUser, updateProfilePicture, deleteUser, updateRole } from "./user.controller.js";
+import { updatePasswordValidator, updateUserValidator, updateProfilePictureValidator, deleteUserValidator, changeRoleValidator } from "../middelwares/user-validators.js";
 import { uploadProfilePicture } from "../middelwares/multer-upload.js";
 const router = Router();
 
@@ -135,4 +135,9 @@ router.delete(
   deleteUser
 )
 
+router.patch(
+  "/updateRole/:uid",
+  changeRoleValidator,
+  updateRole
+)
 export default router

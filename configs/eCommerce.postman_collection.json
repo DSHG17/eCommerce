@@ -295,6 +295,51 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "updateRole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMjkxM2Y5NTU2MTc3YTFlMzg2YmMiLCJpYXQiOjE3NDEwNjYxMDYsImV4cCI6MTc0MTA2OTcwNn0.IvR62A4OgTDcRUcqRbu1zmOG7Ss5C6peJRx1CtfsDFU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/eCommerce/v1/user/updateRole/67ad2913f9556177a1e386bc",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"eCommerce",
+								"v1",
+								"user",
+								"updateRole",
+								"67ad2913f9556177a1e386bc"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

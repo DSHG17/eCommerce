@@ -5,6 +5,7 @@ import { validateJWT } from "./validate-jwt.js";
 import { emailExists, usernameExists,userExists } from "../helpers/db-validators.js";
 import { hasRoles } from "./validate-roles.js";
 import { deleteFileOnError } from "./delete-file-on-error.js";
+import { isActive, isActiveParam } from "./validate-status";
 
 export const registerValidator = [
     body("name").notEmpty().withMessage("El nombre es requerido"),
@@ -26,6 +27,7 @@ export const registerValidator = [
 ]
 
 export const loginValidator = [
+    isActive(),
     body("email").optional().isEmail().withMessage("No es un email válido"),
     body("username").optional().isString().withMessage("Username es en formáto erróneo"),
     body("password").isLength({min: 4}).withMessage("El password debe contener al menos 8 caracteres"),
@@ -36,8 +38,8 @@ export const loginValidator = [
 export const updateUserValidator = [
     validateJWT,
     hasRoles("ADMIN"),
-    param("id", "No es un ID válido").isMongoId(),
-    param("id").custom(userExists)
+    validarCampos,
+    handleErrors
 ]
 
 export const updatePasswordValidator = [
@@ -63,6 +65,16 @@ export const updateProfilePictureValidator = [
 export const deleteUserValidator = [
     validateJWT,
     body("password").isLength({min: 4}).withMessage("El password debe contener al menos 8 caracteres"),
+    validarCampos,
+    handleErrors
+]
+
+export const changeRoleValidator = [
+    validateJWT,
+    hasRoles("ADMIN"),
+    isActiveParam(),
+    param("uid", "No es un ID válido").isMongoId(),
+    param("uid").custom(userExists),
     validarCampos,
     handleErrors
 ]
