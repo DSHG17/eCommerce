@@ -59,3 +59,10 @@ export const updateProfilePictureValidator = [
     deleteFileOnError,
     handleErrors
 ];
+
+export const deleteUserValidator = [
+    validateJWT,
+    body("password").isLength({min: 4}).withMessage("El password debe contener al menos 8 caracteres"),
+    validarCampos,
+    handleErrors
+]

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f88bd895-bb77-440c-b607-7c1d43ab9946",
+		"_postman_id": "ec99b357-5c4e-423b-a4e0-844576dc1d8a",
 		"name": "eCommerce",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37585399"
@@ -209,7 +209,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2MzI5MzgxODFhNWExZTI5YzFhN2YiLCJpYXQiOjE3NDEwNDI3NTIsImV4cCI6MTc0MTA0NjM1Mn0.GJEOZxllTe4CH_6pfr4fpjhRAYjgd2IC6YJW-13i8P8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2NzcwMGM4MmIwZjA3OTIxZGQ2YzIiLCJpYXQiOjE3NDEwNTk4NDIsImV4cCI6MTc0MTA2MzQ0Mn0.RFyPwRzkDY1RFcKn3ow1eMM-fzGtpYzvOOe4OeVeZYs",
 									"type": "string"
 								}
 							]
@@ -228,7 +228,7 @@
 								{
 									"key": "profilePicture",
 									"type": "file",
-									"src": "/C:/Users/Informatica/Downloads/yasuo2.jpg"
+									"src": "/C:/Users/dshgo/Desktop/rin.jpg"
 								}
 							]
 						},
@@ -247,6 +247,50 @@
 								"v1",
 								"user",
 								"updateProfilePicture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2NzcwMGM4MmIwZjA3OTIxZGQ2YzIiLCJpYXQiOjE3NDEwNTk4NDIsImV4cCI6MTc0MTA2MzQ0Mn0.RFyPwRzkDY1RFcKn3ow1eMM-fzGtpYzvOOe4OeVeZYs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"Samedirection14*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/eCommerce/v1/user/deleteUser",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"eCommerce",
+								"v1",
+								"user",
+								"deleteUser"
 							]
 						}
 					},

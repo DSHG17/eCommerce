@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-import { updatePassword, updateUser, updateProfilePicture } from "./user.controller.js";
-import { updatePasswordValidator, updateUserValidator, updateProfilePictureValidator } from "../middelwares/user-validators.js";
+import { updatePassword, updateUser, updateProfilePicture, deleteUser } from "./user.controller.js";
+import { updatePasswordValidator, updateUserValidator, updateProfilePictureValidator, deleteUserValidator } from "../middelwares/user-validators.js";
 import { uploadProfilePicture } from "../middelwares/multer-upload.js";
 const router = Router();
 
@@ -76,6 +76,7 @@ router.patch("/updatePassword", updatePasswordValidator,updatePassword)
  * /updateProfilePicture:
  *   patch:
  *     summary: Update a user's profile picture
+ *     tags: [Users]
  *     parameters:
  *       - in: path
  *         name: uid
@@ -106,5 +107,32 @@ router.patch(
     updateProfilePictureValidator,
     updateProfilePicture
   );
+
+
+  /**
+ * @swagger
+ * /deleteUser:
+ *   delete:
+ *     summary: Delete a user
+ *     description: Deletes a user based on the provided user ID.
+ *     tags: [Users]
+ *     parameters:
+ *       - in: query
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The ID of the user to delete.
+ *     responses:
+ *       200:
+ *         description: User deleted successfully.
+ *       500:
+ *         description: Error while eliminating the user.
+ */
+router.delete(
+  "/deleteUser",
+  deleteUserValidator,
+  deleteUser
+)
 
 export default router

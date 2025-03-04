@@ -102,10 +102,11 @@ export const updateProfilePicture = async (req, res) => {
         }
 
         const user = await User.findById(id);
+        
 
         if (user.profilePicture) {
             const oldProfilePicturePath = join(__dirname, "../../public/uploads/profile-pictures", user.profilePicture);
-            await fs.unlink(oldProfilePicturePath);
+            await fs.unlink(oldProfilePicturePath)
         }
 
         user.profilePicture = newProfilePicture;
@@ -124,3 +125,23 @@ export const updateProfilePicture = async (req, res) => {
         });
     }
 };
+
+export const deleteUser = async (req, res) => {
+        try {
+            const { id } = req.usuario
+    
+            const user = await User.findByIdAndUpdate(id, { status: false }, { new: true });
+
+            return res.status(200).json({
+                success: true,
+                message: "User deleted successfully",
+                user
+            });
+        } catch (err) {
+            return res.status(500).json({
+                success: false,
+                message: "Error while eliminating the user",
+                error: err.message
+            });
+        }
+    }
