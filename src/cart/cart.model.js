@@ -1,4 +1,3 @@
-// models/Cart.js
 import { Schema, model } from 'mongoose';
 
 export const cartSchema = new Schema({
@@ -11,12 +10,10 @@ export const cartSchema = new Schema({
         product: {
             type: Schema.Types.ObjectId,
             ref: 'Product',
-            required: true
         },
         quantity: {
             type: Number,
-            required: true,
-            default: 1
+            default: 0
         }
     }],
     total: {
@@ -25,6 +22,6 @@ export const cartSchema = new Schema({
     }
 }, { timestamps: true });
 
-const Cart = model('Cart', cartSchema)
+export default model("Cart", cartSchema)
 
 

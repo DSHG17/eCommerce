@@ -1,6 +1,7 @@
 import { hash, verify } from "argon2"
 import User from "../user/user.model.js"
 import { generateJWT } from "../helpers/generate-jwt.js";
+import { createCart } from "../cart/cart.controller.js";
 
 
 
@@ -53,7 +54,7 @@ export const login = async (req, res) => {
         }
 
         const token = await generateJWT(user.id)
-
+        createCart()
         return res.status(200).json({
             message: "Login successful",
             userDetails: {
