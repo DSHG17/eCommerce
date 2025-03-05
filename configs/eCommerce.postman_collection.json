@@ -624,6 +624,55 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "createCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMjkxM2Y5NTU2MTc3YTFlMzg2YmMiLCJpYXQiOjE3NDExODMyMDIsImV4cCI6MTc0MTE4NjgwMn0.RC7koQuqYvVOgkgh2hXgUIRATSvwRHXBYIJqCUl04c0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Alimentos\",\r\n    \"description\": \"Comdia corriente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/eCommerce/v1/category/createCategory",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"eCommerce",
+								"v1",
+								"category",
+								"createCategory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
