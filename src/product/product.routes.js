@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { createProductValidator, getProductsValidator } from "../middelwares/product-validators.js";
-import { getProducts, getProductsOutOfStock, saveProduct } from "./product.controller.js";
+import { getBestSellers, getProducts, getProductsOutOfStock, saveProduct } from "./product.controller.js";
 const router = Router();
 
 
@@ -60,11 +60,43 @@ router.get(
     getProductsValidator,
     getProducts
 )
+/**
+ * @swagger
+ * /getProducsOutOfStock:
+ *   get:
+ *     summary: Get products out of stock
+ *     description: Fetches all the products with zero stock.
+ *     tags: [Products]
+ *     responses:
+ *       200:
+ *         description: Successfully fetched all out-of-stock products.
+ *       500:
+ *         description: Error while getting the out of stock items.
+ */
 
 router.get(
     "/getProducsOutOfStock",
     getProductsValidator,
     getProductsOutOfStock
+)
+
+/**
+ * @swagger
+ * /getBestSellers:
+ *   get:
+ *     summary: Get top-selling products
+ *     description: Fetches products sorted by the highest sold quantity.
+ *     tags: [Products]
+ *     responses:
+ *       200:
+ *         description: Successfully fetched the top-selling products.
+ *       500:
+ *         description: Error while getting the best-selling products.
+ */
+router.get(
+    "/getBestSellers",
+    getProductsValidator,
+    getBestSellers
 )
 
 export default router
