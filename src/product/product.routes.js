@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { createProductValidator } from "../middelwares/product-validators.js";
-import { saveProduct } from "./product.controller.js";
+import { createProductValidator, getProductsValidator } from "../middelwares/product-validators.js";
+import { getProducts, saveProduct } from "./product.controller.js";
 const router = Router();
 
 
@@ -39,6 +39,26 @@ router.post(
     "/createProduct",
     createProductValidator,
     saveProduct
+)
+
+
+/**
+ * @swagger
+ * /getProducts:
+ *   get:
+ *     summary: Get all products
+ *     description: Fetches all the products in the catalog.
+ *     tags: [Products]
+ *     responses:
+ *       200:
+ *         description: Successfully fetched all products.
+ *       500:
+ *         description: Error while getting the products.
+ */
+router.get(
+    "/getProducts",
+    getProductsValidator,
+    getProducts
 )
 
 export default router

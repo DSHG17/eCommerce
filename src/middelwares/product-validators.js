@@ -18,4 +18,10 @@ export const createProductValidator = [
     handleErrors
 ]
 
+export const getProductsValidator = [
+    validateJWT,
+    hasRoles("ADMIN"),
+    validarCampos,
+    handleErrors
+]
 
