@@ -671,6 +671,41 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "getCategories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMjkxM2Y5NTU2MTc3YTFlMzg2YmMiLCJpYXQiOjE3NDExODMyMDIsImV4cCI6MTc0MTE4NjgwMn0.RC7koQuqYvVOgkgh2hXgUIRATSvwRHXBYIJqCUl04c0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/eCommerce/v1/category/getCategories",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"eCommerce",
+								"v1",
+								"category",
+								"getCategories"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

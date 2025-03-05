@@ -1,6 +1,6 @@
 import Router from "express"
-import { createCategoryValidator } from "../middelwares/category-validators.js"
-import { createCategory } from "./category.controller.js"
+import { createCategoryValidator, getCategoriesValidator } from "../middelwares/category-validators.js"
+import { createCategory, getCategories } from "./category.controller.js"
 const router = Router()
 
 
@@ -31,6 +31,25 @@ router.post(
     "/createCategory",
     createCategoryValidator,
     createCategory
+)
+
+/**
+ * @swagger
+ * /getCategories:
+ *   get:
+ *     summary: Get all categories
+ *     description: Fetches all categories from the database.
+ *     tags: [Categories]
+ *     responses:
+ *       200:
+ *         description: Successfully fetched all categories.
+ *       500:
+ *         description: Error while getting the categories.
+ */
+router.get(
+    "/getCategories",
+    getCategoriesValidator,
+    getCategories
 )
 
 export default router
