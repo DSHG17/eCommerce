@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-import { updatePassword, updateUser, updateProfilePicture, deleteUser, updateRole } from "./user.controller.js";
-import { updatePasswordValidator, updateUserValidator, updateProfilePictureValidator, deleteUserValidator, changeRoleValidator } from "../middelwares/user-validators.js";
+import { updatePassword, updateUser, updateProfilePicture, deleteUser, updateRole, deleteOthersUser } from "./user.controller.js";
+import { updatePasswordValidator, updateUserValidator, updateProfilePictureValidator, deleteUserValidator, changeRoleValidator, deleteOtherUserValidator } from "../middelwares/user-validators.js";
 import { uploadProfilePicture } from "../middelwares/multer-upload.js";
 const router = Router();
 
@@ -135,9 +135,92 @@ router.delete(
   deleteUser
 )
 
+
+/**
+ * @swagger
+ * /updateRole/{uid}:
+ *   patch:
+ *     summary: Actualiza el rol de un usuario
+ *     description: Permite actualizar el rol de un usuario especificado por su ID (`uid`).
+ *     tags: [Users]
+ *     parameters:
+ * 
+ *       - in: path
+ *         name: uid
+ *         required: true
+ *         description: ID del usuario cuyo rol se actualizará.
+ *         schema:
+ *           type: string
+ *           example: "67c8c33bde94cd46d5e08c97"
+ *       - in: body
+ *         name: body
+ *         required: true
+ *         description: El rol que se desea asignar al usuario.
+ *         schema:
+ *           type: object
+ *           properties:
+ *             role:
+ *               type: string
+ *               enum: ["ADMIN", "CLIENT"]
+ *               description: El rol que se desea asignar al usuario.
+ *               example: "ADMIN"
+ *     responses:
+ *       200:
+ *         description: Rol actualizado con éxito.
+ *         schema:
+ *           type: object
+ *           properties:
+ *             message:
+ *               type: string
+ *               example: "Rol actualizado correctamente."
+ *       400:
+ *         description: Error en la solicitud, por ejemplo, rol no válido o ID de usuario incorrecto.
+ *       500:
+ *         description: Error interno del servidor.
+ */
+
 router.patch(
   "/updateRole/:uid",
   changeRoleValidator,
   updateRole
+)
+
+
+/**
+ * @swagger
+ * /deleteOtherUser/{uid}:
+ *   delete:
+ *     summary: Elimina a otro usuario
+ *     description: Permite eliminar un usuario especificado por su ID (`uid`), solo si el solicitante tiene permisos adecuados.
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: uid
+ *         required: true
+ *         description: ID del usuario que se desea eliminar.
+ *         schema:
+ *           type: string
+ *           example: "67c8c33bde94cd46d5e08c97"
+ *     responses:
+ *       200:
+ *         description: Usuario eliminado con éxito.
+ *         schema:
+ *           type: object
+ *           properties:
+ *             message:
+ *               type: string
+ *               example: "Usuario eliminado con éxito."
+ *       400:
+ *         description: Error si el ID de usuario no es válido o el usuario no tiene permisos.
+ *       404:
+ *         description: No se encontró el usuario con el ID proporcionado.
+ *       500:
+ *         description: Error interno del servidor.
+ */
+
+router.delete(
+  "/deleteOtherUser/:uid",
+  deleteOtherUserValidator,
+  deleteOthersUser
 )
 export default router

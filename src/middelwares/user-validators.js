@@ -79,3 +79,10 @@ export const changeRoleValidator = [
     validarCampos,
     handleErrors
 ]
+
+export const deleteOtherUserValidator =[
+    validateJWT,
+    hasRoles("ADMIN"),
+    validarCampos,
+    handleErrors
+]

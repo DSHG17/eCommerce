@@ -167,3 +167,20 @@ export const updateRole = async (req,res) =>{
     }
 }
 
+export const deleteOthersUser = async(req,res) =>{
+    try{
+        const {uid} = req.params
+
+        await User.findByIdAndUpdate(uid, { status: false }, { new: true })
+
+        return res.status(200).json({
+            success:true,
+            message: 'User deleted successfully'
+        })
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            message: 'Error while deleting the user'
+        })
+    }
+}
