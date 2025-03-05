@@ -37,7 +37,7 @@ router.post("/register",uploadProfilePicture.single("profilePicture"),registerVa
  * @swagger
  * /login:
  *   post:
- *     summary: Inicia sesión de un usuario
+ *     summary: Inicia sesión de un usuario y crea su carrito de compras
  *     tags: [Auth]
  *     requestBody:
  *       required: true

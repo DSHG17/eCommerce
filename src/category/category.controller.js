@@ -82,7 +82,6 @@ export const deleteCategory = async (req, res) => {
         await Category.findByIdAndUpdate(cid, {status: false}, {new: true})
         const dcid = await Category.findOne({name:"food"})
 
-        console.log(dcid.id)
         await Product.updateMany({ category: cid }, { category: dcid.id });
 
         return res.status(200).json({

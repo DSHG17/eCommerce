@@ -4,7 +4,8 @@ const categorySchema = Schema({
     name:{
         type: String,
         required: [true, "Name is required"],
-        maxLength: [25, "Name cannot exceed 25 characters"]
+        maxLength: [25, "Name cannot exceed 25 characters"],
+        unique: true
     },
     description:{
         type: String,
