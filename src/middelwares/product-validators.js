@@ -3,7 +3,7 @@ import { validarCampos } from "./fields-validator.js";
 import { handleErrors } from "./handle-errors.js";
 import { validateJWT } from "./validate-jwt.js";
 import { hasRoles } from "./validate-roles.js";
-import { productExists } from "../helpers/db-validators.js";
+import { productExists, productNameExists } from "../helpers/db-validators.js";
 
 
 
@@ -45,6 +45,15 @@ export const deleteProductValidator = [
     hasRoles("ADMIN"),
     param("pid", "No es un ID válido").isMongoId(),
     param("pid").custom(productExists),
+    validarCampos,
+    handleErrors
+]
+
+export const getProductByNameValidator = [
+    validateJWT,
+    body("name").notEmpty().withMessage("the name of the product is required"),
+    body("name").custom(productNameExists),
+    hasRoles("ADMIN"),
     validarCampos,
     handleErrors
 ]

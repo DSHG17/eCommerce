@@ -29,3 +29,10 @@ export const productExists = async (pid = "") =>{
     }
 }
 
+export const productNameExists = async (name = "") =>{
+    const existe = await Product.findOne({name})
+    if(!existe){
+        throw new Error("No existe el producto con el nombre proporcionado")
+    }
+}
+

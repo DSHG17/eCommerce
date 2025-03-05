@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { createProductValidator, deleteProductValidator, getProductsValidator, updateProductValidator } from "../middelwares/product-validators.js";
-import { deleteProduct, getBestSellers, getProducts, getProductsOutOfStock, saveProduct, updateProduct } from "./product.controller.js";
+import { createProductValidator, deleteProductValidator, getProductByNameValidator, getProductsValidator, updateProductValidator } from "../middelwares/product-validators.js";
+import { deleteProduct, getBestSellers, getProductByName, getProducts, getProductsOutOfStock, saveProduct, updateProduct } from "./product.controller.js";
 const router = Router();
 
 
@@ -170,5 +170,11 @@ router.delete(
     "/deleteProduct/:pid",
     deleteProductValidator,
     deleteProduct
+)
+
+router.get(
+    "/getProductsByName",
+    getProductByNameValidator,
+    getProductByName
 )
 export default router

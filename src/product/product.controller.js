@@ -116,3 +116,22 @@ export const deleteProduct = async(req, res) =>{
         })
     }
 }
+
+export const getProductByName = async(req,res) =>{
+    try{
+        const {name} = req.body
+
+        const products = await Product.find({name:name})
+
+        
+        return res.status(200).json({
+            success: false,
+            products: products
+        })
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            messagge: 'Error while getting the products or products with the name'
+        })
+    }
+}
