@@ -354,7 +354,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMjkxM2Y5NTU2MTc3YTFlMzg2YmMiLCJpYXQiOjE3NDExMzAzNDksImV4cCI6MTc0MTEzMzk0OX0.u9-c-TSNrc1N2tCRT8Obt95f84c8WC1qusOLUQdsiL0",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMjkxM2Y5NTU2MTc3YTFlMzg2YmMiLCJpYXQiOjE3NDExMzg5MzYsImV4cCI6MTc0MTE0MjUzNn0.H18RZeGFYDTf8qErQvZ82xNuX93sLWbPbCQ_S2LXhLw",
 									"type": "string"
 								}
 							]
@@ -490,6 +490,87 @@
 								"v1",
 								"product",
 								"getBestSellers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMjkxM2Y5NTU2MTc3YTFlMzg2YmMiLCJpYXQiOjE3NDExNDI5NDYsImV4cCI6MTc0MTE0NjU0Nn0.gUf87gkzQaKyM-ht0jTncCd07wvUAB3yq0wBj1QgyWU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Logitech G502\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/eCommerce/v1/product/updateProduct/67c78b2a75e3c6d5f100d759",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"eCommerce",
+								"v1",
+								"product",
+								"updateProduct",
+								"67c78b2a75e3c6d5f100d759"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMjkxM2Y5NTU2MTc3YTFlMzg2YmMiLCJpYXQiOjE3NDExNDI5NDYsImV4cCI6MTc0MTE0NjU0Nn0.gUf87gkzQaKyM-ht0jTncCd07wvUAB3yq0wBj1QgyWU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/eCommerce/v1/product/deleteProduct/67c7b8230cd6d0e65ccaffd1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"eCommerce",
+								"v1",
+								"product",
+								"deleteProduct",
+								"67c7b8230cd6d0e65ccaffd1"
 							]
 						}
 					},

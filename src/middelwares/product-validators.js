@@ -40,3 +40,12 @@ export const updateProductValidator = [
     handleErrors
 ]
 
+export const deleteProductValidator = [
+    validateJWT,
+    hasRoles("ADMIN"),
+    param("pid", "No es un ID válido").isMongoId(),
+    param("pid").custom(productExists),
+    validarCampos,
+    handleErrors
+]
+

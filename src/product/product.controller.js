@@ -97,3 +97,22 @@ export const updateProduct = async(req,res) =>{
         })
     }
 }
+
+export const deleteProduct = async(req, res) =>{
+    try{
+        const {pid} = req.params
+
+        await Product.findByIdAndUpdate(pid,{status: false},{new: true})
+
+        return res.status(200).json({
+            success: true,
+            message: 'User deleted successfully'
+        })
+        
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            message: 'Error while deleting the user'
+        })
+    }
+}

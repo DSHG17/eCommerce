@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { createProductValidator, getProductsValidator, updateProductValidator } from "../middelwares/product-validators.js";
-import { getBestSellers, getProducts, getProductsOutOfStock, saveProduct, updateProduct } from "./product.controller.js";
+import { createProductValidator, deleteProductValidator, getProductsValidator, updateProductValidator } from "../middelwares/product-validators.js";
+import { deleteProduct, getBestSellers, getProducts, getProductsOutOfStock, saveProduct, updateProduct } from "./product.controller.js";
 const router = Router();
 
 
@@ -99,10 +99,76 @@ router.get(
     getBestSellers
 )
 
+/**
+ * @swagger
+ * /updateProduct/{pid}:
+ *   put:
+ *     summary: Update an existing product
+ *     description: Updates a product with the given `pid` and new data.
+ *     tags: [Products]
+ *     parameters:
+ *       - in: path
+ *         name: pid
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The ID of the product to update.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               price:
+ *                 type: number
+ *               category:
+ *                 type: string
+ *               stock:
+ *                 type: number
+ *     responses:
+ *       200:
+ *         description: Product updated successfully.
+ *       400:
+ *         description: Invalid data provided.
+ *       404:
+ *         description: Product not found.
+ *       500:
+ *         description: Error while updating the product.
+ */
+
 router.put(
     "/updateProduct/:pid",
     updateProductValidator,
     updateProduct
 )
 
+
+/**
+ * @swagger
+ * /deleteProduct/{pid}:
+ *   delete:
+ *     summary: Soft delete a product
+ *     description: Marks a product as deleted by setting its status to false.
+ *     tags: [Products]
+ *     parameters:
+ *       - in: path
+ *         name: pid
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The ID of the product to delete.
+ *     responses:
+ *       200:
+ *         description: Product deleted successfully.
+ *       500:
+ *         description: Error while deleting the product.
+ */
+router.delete(
+    "/deleteProduct/:pid",
+    deleteProductValidator,
+    deleteProduct
+)
 export default router
