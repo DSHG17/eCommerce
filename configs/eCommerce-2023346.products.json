@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "67c8ce373aa3dbe5bfecaf4b"
+  },
+  "name": "Logitech G pro X",
+  "description": "Best mouse gaming with high dpi and refresh rate",
+  "price": 90,
+  "brand": "Logitech",
+  "stock": 4,
+  "soldCantity": 0,
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c8deeb66337a36ad997b62"
+  },
+  "name": "Logitech G pro X",
+  "description": "Best mouse gaming with high dpi and refresh rate",
+  "price": 90,
+  "brand": "Logitech",
+  "stock": 1,
+  "soldCantity": 0,
+  "status": true
+}]

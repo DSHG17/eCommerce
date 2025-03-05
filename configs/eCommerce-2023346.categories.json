@@ -1,0 +1,8 @@
+[{
+  "_id": {
+    "$oid": "67c8df1066337a36ad997b66"
+  },
+  "name": "Alimentos",
+  "description": "Comdia corriente",
+  "status": true
+}]

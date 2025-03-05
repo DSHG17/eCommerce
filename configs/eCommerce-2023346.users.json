@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "67c60e1946ca5ac1937a63c6"
+  },
+  "name": "nomoreniggers",
+  "surname": "el waza waza",
+  "username": "elPapuPro",
+  "email": "dshgonzalez11@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$ZqFMgTwIAsYrt+GEFGniJw$d0L76BVha90TiJhTCCzt4u4t4nUz9FQdO/zjsnTqwHw",
+  "phone": "40191129",
+  "role": "ADMIN",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c632938181a5a1e29c1a7f"
+  },
+  "name": "Nigger",
+  "surname": "Balenciagass",
+  "username": "jbalenciaga3",
+  "email": "jbalenciaga3@gmail.es",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$MemJI7r9HCnW5ZXEt5cerg$lDVem6ArQVx+EZBwWZk0K/D7ymoIn669SzRctjuO2O4",
+  "profilePicture": "yasuo2-1741044110509.jpg",
+  "phone": "22160098",
+  "role": "CLIENT",
+  "status": true
+}]
