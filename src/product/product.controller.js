@@ -69,3 +69,31 @@ export const getBestSellers = async(req,res) =>{
         })
     }
 }
+
+export const updateProduct = async(req,res) =>{
+    try{
+        const {pid} = req.params
+        const data = req.body
+
+
+        if(!data || Object.keys(data).length === 0){
+            return res.status(200).json({
+                success: true,
+                message: "Nothing was changed cause there was not changes in the request"
+            })
+        }
+        const product = await Product.findByIdAndUpdate(pid,data,{new: true})
+        
+        return res.status(200).json({
+            success: true,
+            message: "product updated sucessfully",
+            product: product
+        })
+
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            message: 'Error while updating the product'
+        })
+    }
+}

@@ -166,3 +166,4 @@ export const updateRole = async (req,res) =>{
         })
     }
 }
+

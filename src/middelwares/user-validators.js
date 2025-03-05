@@ -7,6 +7,7 @@ import { hasRoles } from "./validate-roles.js";
 import { deleteFileOnError } from "./delete-file-on-error.js";
 import { isActive, isActiveParam } from "./validate-status.js";
 
+
 export const registerValidator = [
     body("name").notEmpty().withMessage("El nombre es requerido"),
     body("username").notEmpty().withMessage("El username es requerido"),
