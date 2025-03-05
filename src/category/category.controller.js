@@ -1,4 +1,5 @@
 import Category from "./category.model.js"
+import Product from "../product/product.model.js"
 
 export const defaultCategory = async () => {
     const defaultCategoryModel = {
@@ -68,6 +69,31 @@ export const updateCategory = async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Error while updating the category",
+            error: err.message
+        })
+    }
+}
+
+
+export const deleteCategory = async (req, res) => {
+    try {
+        const { cid } = req.params
+
+        await Category.findByIdAndUpdate(cid, {status: false}, {new: true})
+        const dcid = await Category.findOne({name:"food"})
+
+        console.log(dcid.id)
+        await Product.updateMany({ category: cid }, { category: dcid.id });
+
+        return res.status(200).json({
+            success: true,
+            message: "Category deleted successfully"
+        })
+
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error while deleting the category",
             error: err.message
         })
     }

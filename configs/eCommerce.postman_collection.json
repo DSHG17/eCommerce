@@ -751,6 +751,42 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "deleteCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMjkxM2Y5NTU2MTc3YTFlMzg2YmMiLCJpYXQiOjE3NDExODcxMDEsImV4cCI6MTc0MTE5MDcwMX0.QpD1jPBdbXnCBjh97r60cfx6iJigJvMzwc4Y1KiDLWM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/eCommerce/v1/category/deleteCategory/67c86cab44cba5f88e7137f0",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"eCommerce",
+								"v1",
+								"category",
+								"deleteCategory",
+								"67c86cab44cba5f88e7137f0"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

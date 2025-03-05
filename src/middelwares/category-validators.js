@@ -31,3 +31,12 @@ export const updateCategoryValidator = [
     validarCampos,
     handleErrors
 ]
+
+export const deleteCategoryValidator = [
+    validateJWT,
+    hasRoles("ADMIN"),
+    param("cid", "No es un ID válido de MongoDB").isMongoId(),
+    param("cid").custom(categoryExist),
+    validarCampos,
+    handleErrors
+]
