@@ -706,6 +706,51 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMjkxM2Y5NTU2MTc3YTFlMzg2YmMiLCJpYXQiOjE3NDExODcxMDEsImV4cCI6MTc0MTE5MDcwMX0.QpD1jPBdbXnCBjh97r60cfx6iJigJvMzwc4Y1KiDLWM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"food\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/eCommerce/v1/category/updateCategory/67c8592e2f0b0ff701e37438",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"eCommerce",
+								"v1",
+								"category",
+								"updateCategory",
+								"67c8592e2f0b0ff701e37438"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
