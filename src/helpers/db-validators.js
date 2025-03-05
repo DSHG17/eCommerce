@@ -20,3 +20,4 @@ export const emailExists = async (email = "") => {
         throw new Error(`The email ${email} is already registered`)
     }
 }
+

@@ -5,7 +5,7 @@ import { validateJWT } from "./validate-jwt.js";
 import { emailExists, usernameExists,userExists } from "../helpers/db-validators.js";
 import { hasRoles } from "./validate-roles.js";
 import { deleteFileOnError } from "./delete-file-on-error.js";
-import { isActive, isActiveParam } from "./validate-status";
+import { isActive, isActiveParam } from "./validate-status.js";
 
 export const registerValidator = [
     body("name").notEmpty().withMessage("El nombre es requerido"),

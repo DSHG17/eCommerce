@@ -12,7 +12,7 @@ const productSchema = Schema({
         maxLength: [100, "Description cannot exceed 100 characters"]
     },
     category:{
-        type: mongoose.Schema.Types.ObjectId, 
+        type: Schema.Types.ObjectId, 
         ref: 'Category'
     },
     price:{
@@ -25,7 +25,7 @@ const productSchema = Schema({
     },
     stock:{
         type: Number,
-        default: 0
+        default: 1
     },
     soldCantity:{
         type: Number,
