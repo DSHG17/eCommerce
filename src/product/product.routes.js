@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { createProductValidator, getProductsValidator } from "../middelwares/product-validators.js";
-import { getProducts, saveProduct } from "./product.controller.js";
+import { getProducts, getProductsOutOfStock, saveProduct } from "./product.controller.js";
 const router = Router();
 
 
@@ -59,6 +59,12 @@ router.get(
     "/getProducts",
     getProductsValidator,
     getProducts
+)
+
+router.get(
+    "/getProducsOutOfStock",
+    getProductsValidator,
+    getProductsOutOfStock
 )
 
 export default router
