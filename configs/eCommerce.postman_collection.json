@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ec99b357-5c4e-423b-a4e0-844576dc1d8a",
+		"_postman_id": "63194cfe-4870-40a3-8fdd-badbed71caef",
 		"name": "eCommerce",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37585399"
@@ -783,6 +783,45 @@
 								"category",
 								"deleteCategory",
 								"67c86cab44cba5f88e7137f0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cart",
+			"item": [
+				{
+					"name": "addToCart",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cid\":\"67c8d27890709c5c4f24e0cb\",\r\n  \"products\": [\r\n    {\r\n      \"productId\": \"67c8ce373aa3dbe5bfecaf4b\", \r\n      \"quantity\": 2\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/eCommerce/v1/cart/updateCart",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"eCommerce",
+								"v1",
+								"cart",
+								"updateCart"
 							]
 						}
 					},

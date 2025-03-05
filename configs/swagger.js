@@ -23,7 +23,8 @@ const swaggerOptions = {
         "./src/auth/*.js",
         "./src/user/*.js",
         "./src/product/*.js",
-        "./src/category/*.js"
+        "./src/category/*.js",
+        "./src/cart/*.js"
     ]
 }
 

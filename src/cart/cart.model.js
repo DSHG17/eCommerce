@@ -19,7 +19,11 @@ export const cartSchema = new Schema({
     total: {
         type: Number,
         default: 0
-    }
+    },
+    status:{
+        type: Boolean,
+        default: true
+    },
 }, { timestamps: true });
 
 export default model("Cart", cartSchema)

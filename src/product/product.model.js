@@ -19,6 +19,9 @@ const productSchema = Schema({
         type: Schema.Types.ObjectId,
         ref: 'Product'
     },
+    price:{
+        type: Number
+    },
     brand:{
         type: String,
         required: [true, "Brand is required"]
